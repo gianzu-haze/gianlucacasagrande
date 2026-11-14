@@ -1,12 +1,4 @@
-type DatedEntry = {
-  startDate: string
-  endDate?: string
-  _meta: { path: string }
-}
-
-export function chronologicalEntries<T extends DatedEntry>(
-  entries: readonly T[],
-) {
+export function chronologicalEntries(entries) {
   return [...entries].sort(
     (a, b) =>
       Number(!b.endDate) - Number(!a.endDate) ||
@@ -16,15 +8,13 @@ export function chronologicalEntries<T extends DatedEntry>(
   )
 }
 
-export function newestPosts<T extends { date: string; slug: string }>(
-  posts: readonly T[],
-) {
+export function newestPosts(posts) {
   return [...posts].sort(
     (a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug),
   )
 }
 
-export function formatDate(value: string) {
+export function formatDate(value) {
   return new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
     month: 'long',

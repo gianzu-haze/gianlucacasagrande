@@ -6,7 +6,8 @@ export const site = {
   summary:
     'Trasformo la curiosità in esperienze digitali intuitive, pensate per le persone.',
 }
-export function pageMeta(title: string, description: string) {
+
+export function pageMeta(title, description) {
   const fullTitle = `${title} | ${site.name}`
   return {
     meta: [

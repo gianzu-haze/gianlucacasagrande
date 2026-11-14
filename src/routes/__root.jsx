@@ -11,7 +11,7 @@ const siteDescription = site.description
 export const Route = createRootRoute({
   notFoundComponent: NotFoundPage,
   head: () => ({
-    links: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    links: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
     meta: [
       {
         charSet: 'utf-8',
@@ -48,7 +48,7 @@ export const Route = createRootRoute({
   shellComponent: RootDocument,
 })
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootDocument({ children }) {
   return (
     <html lang="it">
       <head>
@@ -69,12 +69,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <a className="footer-name" href="/">
             Gianluca Casagrande<span>Junior UX/UI designer</span>
           </a>
-          <p>
-            Progettare con curiosità.
-            <br />
-            Crescere, un progetto alla volta.
-          </p>
-          <span>© {new Date().getFullYear()} · Fatto con cura.</span>
+          <span className="contatti"><strong>Contatti:</strong>
+            <br />Cellulare: +39 366 731 5303
+            <br />E-mail: gianzcasagrande@gmail.com
+            <br />LinkedIn: <a href="https://www.linkedin.com/in/gianluca-casagrande-775572403/">Gianluca Casagrande</a>
+          </span>
+          <span>© {new Date().getFullYear()}</span>
         </footer>
         <Scripts />
       </body>

@@ -16,10 +16,10 @@ export function SiteHeader() {
           Presentazione
         </Link>
         <Link to="/projects" activeProps={{ className: 'current' }}>
-          Progetti <ArrowUpRight size={15} />
+          Progetti 
         </Link>
       </nav>
-      <span className="header-label">PORTFOLIO / UX · UI</span>
+      <span className="header-label">PORTFOLIO</span>
     </header>
   )
 }

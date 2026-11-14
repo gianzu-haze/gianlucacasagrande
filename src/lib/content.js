@@ -23,8 +23,7 @@ const datedFields = {
   tags,
   content: z.string(),
 }
-const validRange = (entry: { startDate: string; endDate?: string }) =>
-  !entry.endDate || entry.endDate >= entry.startDate
+const validRange = (entry) => !entry.endDate || entry.endDate >= entry.startDate
 
 export const jobSchema = z
   .object({
@@ -68,7 +67,7 @@ export const projectSchema = z.object({
   content: z.string(),
 })
 
-export function renderMarkdown(content: string) {
+export function renderMarkdown(content) {
   return sanitizeHtml(marked.parse(content, { async: false }), {
     allowedTags: [...sanitizeHtml.defaults.allowedTags, 'img'],
     allowedAttributes: {
@@ -81,7 +80,7 @@ export function renderMarkdown(content: string) {
   })
 }
 
-export function resolveSlug(value: string | undefined, path: string) {
+export function resolveSlug(value, path) {
   return slug.parse(
     value ??
       path
@@ -93,10 +92,8 @@ export function resolveSlug(value: string | undefined, path: string) {
   )
 }
 
-export function assertUniqueSlugs(
-  posts: { slug: string; _meta: { filePath: string } }[],
-) {
-  const paths = new Map<string, string>()
+export function assertUniqueSlugs(posts) {
+  const paths = new Map()
   for (const post of posts) {
     const previous = paths.get(post.slug)
     if (previous)

@@ -16,7 +16,7 @@ export const Route = createFileRoute('/projects')({
 function Projects() {
   const [filter, setFilter] = useState('Tutti')
   const visible = projects.filter(
-    (p) => filter === 'Tutti' || p.category === filter,
+    (p) => filter === 'Tutti' || p.categories.includes(filter),
   )
   return (
     <div className="page-shell projects-page">
@@ -58,7 +58,7 @@ function Projects() {
           <article className="project-card" key={p.id} id={p.id}>
             <ProjectArt kind={p.art} />
             <div className="card-meta">
-              <span>{p.category}</span>
+              <span>{p.categories.join(' · ')}</span>
               <span>{String(projects.indexOf(p) + 1).padStart(2, '0')}</span>
             </div>
             <h2>{p.title}</h2>

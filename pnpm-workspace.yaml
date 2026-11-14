@@ -1,0 +1,5 @@
+allowBuilds:
+  esbuild: set this to true or false
+minimumReleaseAgeExclude:
+  - rolldown@1.2.18
+  - seroval-plugins@1.8.0

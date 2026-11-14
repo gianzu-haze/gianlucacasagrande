@@ -12,7 +12,7 @@ This is Gianluca Casagrande’s Italian portfolio, built with React 19, TypeScri
 - `src/routes/__root.tsx`: Italian document, shared footer, accessibility skip link, metadata, and favicon.
 - `src/lib/site.ts`: identity and shared metadata helper.
 - `src/styles.css`: responsive editorial design, cream/terracotta/olive palette, typography, interaction states, and reduced-motion rules.
-- `public/favicon.svg`: custom monogram favicon.
+- `public/favicon.png`: custom monogram favicon.
 
 ## Conventions and decisions
 
