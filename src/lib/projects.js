@@ -1,6 +1,8 @@
 export const projects = [
   {
     id: 'appa',
+    images: [],
+    documents: [],
     title: 'Progettazione di una dashboard per APPA Trentino',
     categories: ['UX/UI Design'],
     art: 'dashboard',
@@ -9,6 +11,8 @@ export const projects = [
   },
   {
     id: 'igg',
+    images: [],
+    documents: [],
     title: 'Interfaccia di annotazione geografica per IGG Pisa',
     categories: ['UX/UI Design', 'Sviluppo'],
     art: 'map',
@@ -17,6 +21,8 @@ export const projects = [
   },
   {
     id: 'meteotrentino',
+    images: [],
+    documents: [],
     title: 'Progetto di redesign per Meteotrentino',
     categories: ['UX/UI Design'],
     art: 'weather',
@@ -25,6 +31,8 @@ export const projects = [
   },
   {
     id: 'banca-reale',
+    images: [],
+    documents: [],
     title: 'Call to action per Banca Reale',
     categories: ['UX/UI Design'],
     art: 'type',
@@ -32,6 +40,8 @@ export const projects = [
   },
   {
     id: 'pick-your-poison',
+    images: [],
+    documents: [],
     title: 'Pick your poison',
     categories: ['Sviluppo'],
     art: 'recipe',
@@ -39,6 +49,8 @@ export const projects = [
   },
   {
     id: 'beam',
+    images: [],
+    documents: [],
     title: 'B.E.A.M',
     categories: ['UX/UI Design'],
     art: 'beam',
@@ -46,6 +58,8 @@ export const projects = [
   },
   {
     id: 'pokesite',
+    images: [],
+    documents: [],
     title: 'PokéSite',
     categories: ['Sviluppo'],
     art: 'poke',
@@ -53,6 +67,8 @@ export const projects = [
   },
   {
     id: 'allready',
+    images: [],
+    documents: [],
     title: 'AllReady',
     categories: ['UX/UI Design'],
     art: 'ready',
@@ -60,6 +76,8 @@ export const projects = [
   },
   {
     id: 'tra-muri-e-materassi',
+    images: [],
+    documents: [],
     title: 'Tra muri e materassi',
     categories: ['Ricerca'],
     art: 'research',

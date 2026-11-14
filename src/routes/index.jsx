@@ -158,8 +158,8 @@ function PortfolioHome() {
           {projects.slice(0, 3).map((p) => (
             <Link
               key={p.id}
-              to="/projects"
-              hash={p.id}
+              to="/projects/$projectId"
+              params={{ projectId: p.id }}
               className="selected-card"
             >
               <ProjectArt kind={p.art} />

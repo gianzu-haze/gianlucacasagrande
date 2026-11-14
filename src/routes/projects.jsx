@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState } from 'react'
-import { ArrowLeft, Plus } from 'lucide-react'
+import { ArrowLeft, ArrowUpRight, Plus } from 'lucide-react'
 import { pageMeta } from '../lib/site'
 import { projects } from '../lib/projects'
 import { ProjectArt } from '../components/ProjectArt'
@@ -56,7 +56,9 @@ function Projects() {
       <div className="projects-grid">
         {visible.map((p) => (
           <article className="project-card" key={p.id} id={p.id}>
-            <ProjectArt kind={p.art} />
+            <Link to="/projects/$projectId" params={{ projectId: p.id }} aria-label={`Apri ${p.title}`}>
+              <ProjectArt kind={p.art} />
+            </Link>
             <div className="card-meta">
               <span>{p.categories.join(' · ')}</span>
               <span>{String(projects.indexOf(p) + 1).padStart(2, '0')}</span>
@@ -73,13 +75,12 @@ function Projects() {
                 </p>
               </div>
             </details>
+            <Link className="project-page-link" to="/projects/$projectId" params={{ projectId: p.id }}>
+              Vai alla pagina del progetto <ArrowUpRight size={18} aria-hidden="true" />
+            </Link>
           </article>
         ))}
       </div>
-      <p className="cover-note">
-        Le copertine sono composizioni illustrative e non schermate dei
-        progetti.
-      </p>
     </div>
   )
 }

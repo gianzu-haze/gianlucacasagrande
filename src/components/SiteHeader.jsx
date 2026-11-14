@@ -1,5 +1,4 @@
 import { Link } from '@tanstack/react-router'
-import { ArrowUpRight } from 'lucide-react'
 
 export function SiteHeader() {
   return (
@@ -16,8 +15,10 @@ export function SiteHeader() {
           Presentazione
         </Link>
         <Link to="/projects" activeProps={{ className: 'current' }}>
-          Progetti 
+          Progetti
         </Link>
+        <span className="nav-divider" aria-hidden="true" />
+        <a href="#contatti">Contatti</a>
       </nav>
       <span className="header-label">PORTFOLIO</span>
     </header>
