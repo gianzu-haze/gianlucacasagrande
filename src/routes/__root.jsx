@@ -65,7 +65,7 @@ function RootDocument({ children }) {
         <main id="main-content" tabIndex={-1}>
           {children}
         </main>
-        <footer className="site-footer">
+        <footer id="contatti" className="site-footer" tabIndex={-1} aria-label="Contatti">
           <a className="footer-name" href="/">
             Gianluca Casagrande<span>Junior UX/UI designer</span>
           </a>
