@@ -21,19 +21,19 @@ function Projects() {
   return (
     <div className="page-shell projects-page">
       <Link to="/" className="back-link">
-        <ArrowLeft size={16} /> Torna alla presentazione
+        <ArrowLeft size={24} /> Torna alla presentazione
       </Link>
       <section className="projects-intro">
-        <p className="eyebrow">IL MIO PERCORSO, PROGETTO DOPO PROGETTO</p>
+        <p className="eyebrow">PROGETTI E COLLABORAZIONI</p>
         <h1>
-          Idee da esplorare.
+          Ricerca e prototipazione
           <br />
-          <em>Progetti da raccontare.</em>
+          <em>Per personalizzare l'esperienza</em>
         </h1>
         <p>
-          Una raccolta di esperienze tra università e nuove sfide.
+          Una raccolta di esperienze universitarie e altri progetti
           <br />
-          Dalla ricerca alle interfacce, sempre partendo dalle persone.
+          per mostrare l'applicazione del metodo UX orientato all'utente
         </p>
       </section>
       <div className="filter-bar">
@@ -50,7 +50,7 @@ function Projects() {
           ))}
         </div>
         <span aria-live="polite">
-          {String(visible.length).padStart(2, '0')} progetti
+          {String(visible.length)} progetti
         </span>
       </div>
       <div className="projects-grid">

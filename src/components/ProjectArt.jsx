@@ -17,7 +17,7 @@ export function ProjectArt({ kind }) {
         </div>
       ) : kind === 'map' ? (
         <div className="map-art">
-          <img src="public/IGG.jpg"></img>
+          <img src="IGG.jpg"></img>
         </div>
       ) : kind === 'weather' ? (
         <div className="symbol-art">
