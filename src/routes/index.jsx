@@ -41,7 +41,7 @@ function PortfolioHome() {
         <div className="hero-visual">
           <img
             className="profile-picture"
-            src="/profile_pic.png"
+            src="/Images/profile_pic.png"
             role="img"
             aria-label="Foto di Gianluca Casagrande, Junior UX/UI designer"
           />

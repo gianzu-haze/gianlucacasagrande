@@ -11,7 +11,7 @@ const siteDescription = site.description
 export const Route = createRootRoute({
   notFoundComponent: NotFoundPage,
   head: () => ({
-    links: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+    links: [{ rel: 'icon', type: 'image/png', href: '/Images/favicon.png?v=2' }],
     meta: [
       {
         charSet: 'utf-8',

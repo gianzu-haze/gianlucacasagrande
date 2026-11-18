@@ -66,14 +66,8 @@ function Projects() {
             <h2>{p.title}</h2>
             <details>
               <summary>
-                Scopri il progetto <Plus size={18} />
+                {p.description}
               </summary>
-              <div className="project-details">
-                <p>{p.description}</p>
-                <p className="pending-note">
-                  Il racconto completo del progetto è in preparazione.
-                </p>
-              </div>
             </details>
             <Link className="project-page-link" to="/projects/$projectId" params={{ projectId: p.id }}>
               Vai alla pagina del progetto <ArrowUpRight size={18} aria-hidden="true" />

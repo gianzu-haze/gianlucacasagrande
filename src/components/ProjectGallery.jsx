@@ -1,17 +1,37 @@
-import { useState } from 'react'
-import { ArrowLeft, ArrowRight, ImageIcon } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { ArrowLeft, ArrowRight, ImageIcon, X } from 'lucide-react'
 
 export function ProjectGallery({ images, title }) {
   const [active, setActive] = useState(0)
+  const [isFullScreenOpen, setIsFullScreenOpen] = useState(false)
+  const lightboxRef = useRef(null)
   const slides = images.length ? images : [null, null, null]
   const image = slides[active]
+
+  useEffect(() => {
+    const dialog = lightboxRef.current
+    if (!dialog) return
+
+    if (isFullScreenOpen && !dialog.open) {
+      dialog.showModal()
+    } else if (!isFullScreenOpen && dialog.open) {
+      dialog.close()
+    }
+  }, [isFullScreenOpen])
 
   return (
     <section className="project-gallery" aria-label={`Foto: ${title}`} aria-roledescription="carosello">
       <div className="gallery-slide" role="group" aria-roledescription="diapositiva" aria-label={`${active + 1} di ${slides.length}`}>
         {image ? (
           <figure>
-            <img src={image.src} alt={image.alt} />
+            <button
+              className="gallery-image-button"
+              type="button"
+              aria-label={`Visualizza a schermo intero: ${image.alt || title}`}
+              onClick={() => setIsFullScreenOpen(true)}
+            >
+              <img src={image.src} alt={image.alt} />
+            </button>
             {image.caption && <figcaption>{image.caption}</figcaption>}
           </figure>
         ) : (
@@ -33,6 +53,35 @@ export function ProjectGallery({ images, title }) {
           <ArrowRight size={18} aria-hidden="true" />
         </button>
       </div>
+      <dialog
+        ref={lightboxRef}
+        className="gallery-lightbox"
+        aria-label={`Immagine ingrandita: ${title}`}
+        onCancel={(event) => {
+          event.preventDefault()
+          setIsFullScreenOpen(false)
+        }}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) {
+            setIsFullScreenOpen(false)
+          }
+        }}
+      >
+        <button
+          className="gallery-lightbox-close"
+          type="button"
+          aria-label="Chiudi immagine"
+          onClick={() => setIsFullScreenOpen(false)}
+        >
+          <X size={24} aria-hidden="true" />
+        </button>
+        {image && (
+          <figure>
+            <img src={image.src} alt={image.alt} />
+            {image.caption && <figcaption>{image.caption}</figcaption>}
+          </figure>
+        )}
+      </dialog>
     </section>
   )
 }

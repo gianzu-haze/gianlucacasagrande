@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { ArrowLeft, FileText } from 'lucide-react'
 import { projects } from '../lib/projects'
+import { renderMarkdown } from '../lib/content'
 import { pageMeta } from '../lib/site'
 import { ProjectGallery } from '../components/ProjectGallery'
 
@@ -28,19 +29,31 @@ function ProjectPage() {
         <h1>{project.title}</h1>
       </header>
       <section className="project-story" aria-labelledby="project-description">
-        <h2 id="project-description">Il progetto</h2>
+        <h2 id="project-description">Descrizione</h2>
         <div>
-          <p>{project.description}</p>
-          <p className="pending-note">Il racconto completo del progetto è in preparazione.</p>
+          {project.paragraph ? (
+            <div
+              className="prose project-prose"
+              dangerouslySetInnerHTML={{
+                __html: renderMarkdown(project.paragraph),
+              }}
+            />
+          ) : (
+            <p className="pending-note">
+              {project.paragraph}
+            </p>
+          )}
         </div>
       </section>
-      <section className="project-story" aria-labelledby="project-photos">
-        <h2 id="project-photos">Foto del progetto</h2>
-        <ProjectGallery key={project.id} images={project.images} title={project.title} />
-      </section>
+      {project.images?.length > 0 && (
+        <section className="project-story" aria-labelledby="project-photos">
+          <h2 id="project-photos">Foto del progetto</h2>
+          <ProjectGallery key={project.id} images={project.images} title={project.title} />
+        </section>
+      )}
+      {project.documents?.length > 0 && (
         <section className="project-story" aria-labelledby="project-documents">
           <h2 id="project-documents">Documenti e ricerca</h2>
-          {project.documents.length ? (
           <ul className="project-documents">
             {project.documents.map((document) => (
               <li key={document.href}>
@@ -50,8 +63,8 @@ function ProjectPage() {
               </li>
             ))}
           </ul>
-          ) : <p className="pending-note">Uno spazio per i documenti e i materiali di ricerca, quando disponibili.</p>}
         </section>
+      )}
     </article>
   )
 }

@@ -9,7 +9,8 @@
   --line: #ddddd3;
   --evergreen: #042A2B;
   --rust: #ac4b32;
-  --blue: #067BC2;
+  --link: #067BC2;
+  --blue: #0EB1D2;
   --yale-blue: #055377;
   --olive: #777d58;
   --background: var(--paper);
@@ -105,7 +106,7 @@ em {
 
 .wordmark {
   font-family: 'Manrope', sans-serif;
-  font-size: 38px;
+  font-size: 50px;
   font-weight: 800;
   letter-spacing: -4px;
   line-height: 1;
@@ -239,6 +240,71 @@ em {
   background: #eeede6;
 }
 
+.gallery-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 64px 24px 24px;
+  border: 0;
+  background: transparent;
+  color: white;
+  overflow: hidden;
+}
+
+.gallery-lightbox::backdrop {
+  background: rgb(20 20 20 / 94%);
+}
+
+.gallery-lightbox figure {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.gallery-lightbox img {
+  width: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 120px);
+  background: transparent;
+}
+
+.gallery-lightbox figcaption {
+  color: white;
+  text-align: center;
+}
+
+.gallery-lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 150px;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 45%);
+  background: transparent;
+  color: white;
+}
+
 .project-gallery figcaption {
   margin-top: 12px;
   color: var(--muted);
@@ -253,6 +319,37 @@ em {
   padding-top: 32px;
   border-top: 1px solid var(--line);
   line-height: 1.85;
+}
+
+.project-story h2{
+  color: var(--yale-blue);
+  font-size: 40px;
+}
+
+.project-prose {
+  max-width: none;
+  color: var(--ink);
+}
+
+.project-prose h3{
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: var(--blue)
+}
+
+.project-prose p{
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.project-prose ul{
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.project-prose a{
+  color: var(--link);
+  text-decoration: underline;
 }
 
 .project-documents {
@@ -623,6 +720,7 @@ h2 {
   letter-spacing: -0.5px;
   font-weight: 500;
   max-width: 92%;
+  color: var(--yale-blue);
 }
 
 .preview-dashboard {
@@ -998,7 +1096,7 @@ h2 {
 }
 
 .project-details {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.8;
   padding: 6px 0 20px;
 }
