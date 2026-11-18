@@ -1,5 +1,8 @@
 allowBuilds:
   esbuild: set this to true or false
+# sanitize-html uses require(), so its parser must retain CommonJS support.
+overrides:
+  sanitize-html>htmlparser2: 10.1.0
 minimumReleaseAgeExclude:
   - rolldown@1.2.18
   - seroval-plugins@1.8.0
